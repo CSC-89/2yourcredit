@@ -65,9 +65,8 @@ const yearSliderData = props.year
                   {banks.length > 0 &&
                     
                     banks.map((product, index) => (
-                      <div className="mx-auto">
+                      <div key={index} className="mx-2">
                       <Products
-                        key={index}
                         productInfo={product}
                         year={yearSliderData}
                         loanAmount={priceSliderData}

@@ -18,7 +18,7 @@ const SliderBox = (props) => {
   }
 
   return (
-    <div id="slider-box" className="container mx-auto px-5 py-2 mt-10 shadow-lg border-b border-gray-200 sm:rounded-lg bg-white">
+    <div id="slider-box" className="container mx-auto px-5 py-2 mt-10 shadow-lg border-b border-gray-200 sm:rounded-md bg-white">
       <h3 className="slider-title">
         Lånebeløp: {formatter.format(priceSliderData).replace(",00", "")}
       </h3>
