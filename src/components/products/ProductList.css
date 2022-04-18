@@ -1,0 +1,17 @@
+
+.product-table-header {
+    width: 100px;
+}
+
+.slider-title {
+    
+    text-align: center;
+    padding: 5px;
+    color: black;
+    font-size:x-large;
+    font-weight: 500;
+    float: left;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
