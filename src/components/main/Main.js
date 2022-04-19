@@ -22,8 +22,6 @@ const Main = () => {
   const [devMessageStatus, setDevMessageStatus] = useState(true)
 
 
-  document.body.style.zoom = "80%"
-
 const onPriceChange = (price) => {
   setPriceSliderData(price)
 };

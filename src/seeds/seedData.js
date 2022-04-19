@@ -1,62 +1,66 @@
 export const seedData = [
-    {
-        bank: "DNB",
-        bankImg: "https://www.gifty.no/wp-content/uploads/2021/05/dnb-logo.jpg",
-        belop: 5000,
-        renteEff: 15.2,
-        renteNom: 11.9,
-        aldersgrense: 20,
-        utbetaling: 1,
-        url: "https://www.google.com"
-    },
-    {
-        bank: "Sandnes Sparebank",
-        bankImg: "https://sandnes-sparebank.no/-/media/banker/sandnes-sparebank/velg-oss/dgb_stor_til_kort.jpg?mw=821&hash=A1AA6EED7B159FAB24DAAFA745F6A2591",
-        belop: 10000,
-        renteEff: 10.3,
-        renteNom: 8.4,
-        aldersgrense: 20,
-        utbetaling: 1,
-        url: "https://www.google.com"
-    },
-    {
-        bank: "DanskeBank",
-        bankImg: "https://nye.econa.no/globalassets/bilder---alle-bilder-skal-ligge-her/partner/danske-bank-norge-logo-dark.jpg?width=1440&format=webp",
-        belop: 12000,
-        renteEff: 9.14,
-        renteNom: 7.0,
-        aldersgrense: 25,
-        utbetaling: 2,
-        url: "https://www.google.com"
-    },
-    {
-      bank: "Nordea",
-      bankImg: "https://slive.no/wp-content/uploads/Nordea-logo.png",
-      belop: 5000,
-      renteEff: 14.5,
-      renteNom: 10.8,
-      aldersgrense: 20,
-      utbetaling: 3,
-      url: "https://www.google.com"
+  {
+    bank: "DNB",
+    bankImg: "https://www.gifty.no/wp-content/uploads/2021/05/dnb-logo.jpg",
+    belop: 5000,
+    renteEff: 15.2,
+    renteNom: 11.9,
+    aldersgrense: 20,
+    utbetaling: 1,
+    url: "https://www.google.com",
   },
   {
-      bank: "Santander",
-      bankImg: "https://www.santanderconsumer.no/globalassets/demobilder/santander.png?scale=MaxWidth940",
-      belop: 12000,
-      renteEff: 10.6,
-      renteNom: 9.3,
-      aldersgrense: 20,
-      utbetaling: 2,
-      url: "https://www.google.com"
+    bank: "Sandnes Sparebank",
+    bankImg:
+      "https://sandnes-sparebank.no/-/media/banker/sandnes-sparebank/velg-oss/dgb_stor_til_kort.jpg?mw=821&hash=A1AA6EED7B159FAB24DAAFA745F6A2591",
+    belop: 10000,
+    renteEff: 10.3,
+    renteNom: 8.4,
+    aldersgrense: 20,
+    utbetaling: 1,
+    url: "https://www.google.com",
   },
   {
-      bank: "Lendo",
-      bankImg: "https://kommunikasjon.ntb.no/data/images/00387/17b340d9-83ed-4dc2-9138-4ce6cc2a1c6b.png",
-      belop: 7000,
-      renteEff: 10.0,
-      renteNom: 8.3,
-      aldersgrense: 22,
-      utbetaling: 3,
-      url: "https://www.google.com"
+    bank: "DanskeBank",
+    bankImg:
+      "https://nye.econa.no/globalassets/bilder---alle-bilder-skal-ligge-her/partner/danske-bank-norge-logo-dark.jpg?width=1440&format=webp",
+    belop: 12000,
+    renteEff: 9.14,
+    renteNom: 7.0,
+    aldersgrense: 25,
+    utbetaling: 2,
+    url: "https://www.google.com",
   },
-  ]
+  {
+    bank: "Nordea",
+    bankImg: "https://slive.no/wp-content/uploads/Nordea-logo.png",
+    belop: 5000,
+    renteEff: 14.5,
+    renteNom: 10.8,
+    aldersgrense: 20,
+    utbetaling: 3,
+    url: "https://www.google.com",
+  },
+  {
+    bank: "Santander",
+    bankImg:
+      "https://www.santanderconsumer.no/globalassets/demobilder/santander.png?scale=MaxWidth940",
+    belop: 12000,
+    renteEff: 10.6,
+    renteNom: 9.3,
+    aldersgrense: 20,
+    utbetaling: 2,
+    url: "https://www.google.com",
+  },
+  {
+    bank: "Lendo",
+    bankImg:
+      "https://kommunikasjon.ntb.no/data/images/00387/17b340d9-83ed-4dc2-9138-4ce6cc2a1c6b.png",
+    belop: 7000,
+    renteEff: 10.0,
+    renteNom: 8.3,
+    aldersgrense: 22,
+    utbetaling: 3,
+    url: "https://www.google.com",
+  },
+];

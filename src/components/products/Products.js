@@ -33,7 +33,7 @@ const Products = (props) => {
     <>
 
 
-<div id="card" className="max-w-sm m-5 rounded overflow-hidden shadow-lg mx-auto">
+<div id="card" className="max-w-xs m-5 rounded overflow-hidden shadow-lg">
   <div id="card-container">
   <img id="card-img" className="w-full" src={product.bankImg} alt={product.bank} />
   </div>

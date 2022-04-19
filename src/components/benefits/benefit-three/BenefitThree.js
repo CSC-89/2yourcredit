@@ -1,20 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { seedData } from "../../../seeds/seedData";
 
-const BenefitThree = () => {
+import "./BenefitThree.css";
 
-    const banks = seedData;
-    
+const BenefitThree = () => {
+  const banks = seedData;
+
   // const [bankExamples, setBankExamples] = useState([])
   // const [banks, setBanks] = useState([...seedData])
 
   const randomisedNum = () => {
     return Math.floor(Math.random() * (banks.length - 1));
-  }
-
-
-
-  
+  };
 
   return (
     <>
@@ -30,18 +27,18 @@ const BenefitThree = () => {
                 <img className="h-10" [src]="product.image" alt="">
                 </div> */}
               {banks.map((bank, index) => (
-                  
-              
-
-                 <div key={index} className="container flex justify-center mx-auto " >
-
-                 <img className="w-40" src={bank.bankImg} alt={bank.bank}/>
-                   
-                   
-               </div>
-               
+                <div
+                  key={index}
+                  className="container flex justify-center mx-auto "
+                >
+                  <img
+                    className="bankImage"
+                    src={bank.bankImg}
+                    alt={bank.bank}
+                  />
+                </div>
               ))}
-              
+
               {/** BANK EXAMPLE MAPPING */}
               {/* <div className="container mx-auto grid xs:grid-cols-3 lg:grid-cols-3 mx-auto my-10">
 
