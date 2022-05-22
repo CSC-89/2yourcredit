@@ -9,7 +9,7 @@ const Products = (props) => {
   const premium = props.loanAmount;
   const year = props.year;
 
-  const r = product.renteNom / 100 / 12;
+  const r = product.nomInterest / 100 / 12;
   const n = 12 * year;
 
   const math = useCalc(r, n);
@@ -40,10 +40,10 @@ const Products = (props) => {
   <div className="px-6 pt-4">
     <div className="font-bold text-xl mb-2">{product.bank}</div>
     <p className="text-gray-700 text-base"> <strong>Pr Måned:</strong> {formatter.format(monthlyPayment).replace(",00", "")}</p>
-      <p className="text-gray-700 text-base"> <strong>Nom. Rente:</strong> {product.renteNom}%</p>
-      <p className="text-gray-700 text-base"> <strong>Eff. Rente:</strong> {product.renteEff} - 20.5 %</p>
-      <p className="text-gray-700 text-base"> <strong>Aldersgrense:</strong> {product.aldersgrense} år</p>
-      <p className="text-gray-700 text-base"> <strong>Utbetaling:</strong>  0 - {product.utbetaling} {product.utbetaling === 1 ? "dag" : "dager"}</p>
+      <p className="text-gray-700 text-base"> <strong>Nom. Rente:</strong> {product.nomInterest}%</p>
+      <p className="text-gray-700 text-base"> <strong>Eff. Rente:</strong> {product.effInterest} - 20.5 %</p>
+      <p className="text-gray-700 text-base"> <strong>Aldersgrense:</strong> {product.age} år</p>
+      <p className="text-gray-700 text-base"> <strong>Utbetaling:</strong>  0 - {product.payout} {product.payout === 1 ? "dag" : "dager"}</p>
   </div>
   <div className="px-6 pb-5">
   <a

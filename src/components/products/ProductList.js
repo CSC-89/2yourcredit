@@ -1,47 +1,61 @@
 import React, { useEffect, useState } from "react";
 
 import Products from "./Products";
-import { db } from "../../util/firebase";
-import { ref, get } from "firebase/database";
+import { db } from "../../firebase";
+import { getDocs, collection } from 'firebase/firestore'
+
 import "./ProductList.css";
 import "./Products.css";
 
 
 
 const ProductList = (props) => {
-  const [bankArr, setBankArr] = useState([]);
+  const [banksArray, setBanksArray] = useState([]);
+  const dbRef = collection(db, "seeds"); //Change out for "banks" when real data comes in
 
   const priceSliderData = props.price;
   const yearSliderData = props.year;
 
   useEffect(() => {
-    const dbRef = ref(db, "seeds"); //Change out for "banks" when real data comes in
+    const getData = async () => {
 
-    get(dbRef)
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          console.log("Db name: " + dbRef._path.pieces_[0], snapshot.val());
-          setBankArr(snapshot.val());
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      const data = await getDocs(dbRef)
+
+      await setBanksArray(data.docs.map(elem => (
+        {
+          ...elem.data(),
+          id: elem.id}
+      )))
+
+    }
+
+    getData().then().catch(e => {
+      console.log(e)
+    })
+     
   }, []);
 
   /*Bank array filter
     Logic is not currently correct. Eventually will be filtering between min.loan amount AND max.loan amount
     */
-  const banks = bankArr.filter(
-    async (bank) => (await priceSliderData) >= bank.belop
-  );
+
+    /* Filter is BROKEN - Need to find solution */
+  const banks = banksArray.filter(
+
+    // async bank => bank.amount <= await priceSliderData
+
+    async bank => {
+      return await priceSliderData <= bank.amount} // Test failed
+  )
+
+  // console.log("banksArray: ", banksArray)
+  console.log("banks: ", banks)
+
 
   return (
     <>
-      <div className="bg-gradient-to-tl container flex mx-auto">
-        <div className="container mx-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 my-10">
+      <div className="">
+        <div className="container grid sm:grid-cols-2 lg:grid-cols-4 my-10 mx-auto">
           {/** BANK MAPPING */}
           {banks.length === 0 && <h1>Found no banks matching your search..</h1>}
 

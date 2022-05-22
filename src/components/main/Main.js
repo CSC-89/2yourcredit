@@ -2,9 +2,9 @@ import {React, useState } from "react";
 
 import Banner from "../banner/Banner";
 import ProductList from "../products/ProductList";
-import ExtraInfo from "../extra-info/ExtraInfo";
-import BenefitOne from "../benefits/benefit-one/BenefitOne";
-import BenefitTwo from "../benefits/benefit-two/BenefitTwo";
+// import ExtraInfo from "../extra-info/ExtraInfo";
+// import BenefitOne from "../benefits/benefit-one/BenefitOne";
+// import BenefitTwo from "../benefits/benefit-two/BenefitTwo";
 import BenefitThree from "../benefits/benefit-three/BenefitThree";
 import Footer from "../partials/footer/Footer";
 import Navbar from "../partials/navbar/Navbar";
