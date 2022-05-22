@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 import Products from "./Products";
-import app from "../../util/firebase";
-import { ref, get, child, getDatabase } from "firebase/database";
+import { db } from "../../util/firebase";
+import { ref, get } from "firebase/database";
 import "./ProductList.css";
 import "./Products.css";
 
-import { seedData } from "../../seeds/seedData";
+
 
 const ProductList = (props) => {
   const [bankArr, setBankArr] = useState([]);
@@ -15,13 +15,12 @@ const ProductList = (props) => {
   const yearSliderData = props.year;
 
   useEffect(() => {
-    const db = getDatabase();
     const dbRef = ref(db, "seeds"); //Change out for "banks" when real data comes in
 
     get(dbRef)
       .then((snapshot) => {
         if (snapshot.exists()) {
-          console.log(snapshot.val());
+          console.log("Db name: " + dbRef._path.pieces_[0], snapshot.val());
           setBankArr(snapshot.val());
         } else {
           console.log("No data available");
@@ -31,8 +30,6 @@ const ProductList = (props) => {
         console.error(error);
       });
   }, []);
-
-  console.log("BankARR: ", bankArr);
 
   /*Bank array filter
     Logic is not currently correct. Eventually will be filtering between min.loan amount AND max.loan amount

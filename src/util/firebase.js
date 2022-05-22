@@ -1,21 +1,22 @@
 // Import the functions you need from the SDKs you need
+// import 'dotenv/config'
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBq2fKCDJc0Th-LcIZc7bGQ3R7ukotZSZ4",
-  authDomain: "finance-affiliate-app.firebaseapp.com",
-  databaseURL:
-    "https://finance-affiliate-app-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "finance-affiliate-app",
-  storageBucket: "finance-affiliate-app.appspot.com",
-  messagingSenderId: "541799130114",
-  appId: "1:541799130114:web:e88dfd11c117adf3f3f31b",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
-export default app;
+export const db = getDatabase(app)

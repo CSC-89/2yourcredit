@@ -9,9 +9,9 @@ const BenefitThree = () => {
   // const [bankExamples, setBankExamples] = useState([])
   // const [banks, setBanks] = useState([...seedData])
 
-  const randomisedNum = () => {
-    return Math.floor(Math.random() * (banks.length - 1));
-  };
+  // const randomisedNum = () => {
+  //   return Math.floor(Math.random() * (banks.length - 1));
+  // };
 
   return (
     <>
