@@ -35,7 +35,7 @@ const onDevMessageStatus = (status) => {
 }
 
   return(
-    <div className="mainBody">
+    <div className="mainBody lg:px-72">
       <Navbar devToggleStatus={devMessageStatus}/>
     <div className="fixed inset-x-0">
     {devMessageStatus && <DevMessage toggle={onDevMessageStatus}/>}

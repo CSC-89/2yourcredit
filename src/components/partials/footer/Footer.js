@@ -8,7 +8,7 @@ const Footer = () => {
       <h4 className="text-sm font-semibold text-gray-100 tracking-wider uppercase mt-4 mx-5">Oppdatert: 31/03/22</h4>
        <div className="space-y-4 lg:space-y-0 items-center lg:justify-between xl:mt-0">
          <h3 className="text-sm font-semibold text-gray-100 tracking-wider uppercase mt-4 mx-5">
-                Legal
+                <a href="https://lovdata.no/dokument/SF/forskrift/2020-12-09-2648/kap4#kap4">Legal (LovData)</a>
               </h3>
        </div>
       </footer>
