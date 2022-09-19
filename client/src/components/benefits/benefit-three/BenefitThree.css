@@ -1,0 +1,14 @@
+
+
+.bankImage {
+    width: 14vw;
+}
+
+
+.examples:nth-child(even) {
+    margin-bottom: 2.2rem;
+}
+
+.examples:nth-child(odd) {
+    margin-top: 2.2rem;
+}
