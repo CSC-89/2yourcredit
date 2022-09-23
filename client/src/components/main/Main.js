@@ -4,6 +4,8 @@ import { Footer } from "../Footer";
 import { Header } from "../Header";
 import { Hero } from "../Hero";
 import { Selection } from "../Selection";
+import { Faqs } from "../Faqs";
+import { SecondaryFeatures } from "../SecondaryFeatures";
 
 const Main = (props) => {
     const [cookies, setCookie] = useCookies("cookies");
@@ -48,14 +50,16 @@ const Main = (props) => {
             <Header country={props.country} />
             <main className="bg-gradient-to-b from-white to-sky-200/50">
                 <Hero country={props.country} />
-                {/* <PrimaryFeatures /> */}
-                {/* <SecondaryFeatures /> */}
-                {/* <CallToAction /> */}
+
                 <Selection country={props.country} className="mx-auto" />
-                {/* <Pricing /> */}
-                {/* <Faqs /> */}
+                {/* <SecondaryFeatures /> */}
+                {props.country.countryId === "NO" ? (
+                    <Faqs />
+                ) : (
+                    <div className="py-20"></div>
+                )}
             </main>
-            <Footer country={props.country}/>
+            <Footer country={props.country} />
         </>
     );
 };

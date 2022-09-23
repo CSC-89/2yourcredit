@@ -7,7 +7,7 @@ const LocationSelect = () => {
         <>
             <div className=" h-screen my-auto bg-gradient-to-b from-slate-200/50 to-sky-300/50">
                 <div className=" container mx-auto text-center flex justify-center w-full mb-5">
-                    <div className="mt-20 sm:mt-40 max-w-sm py-5 mx-4 bg-slate-50 w-full rounded-lg shadow-lg">
+                    <div className="mt-20 sm:mt-40 max-w-sm py-5 mx-4 bg-slate-50 relative rounded-2xl p-6 shadow-xl shadow-slate-900/10 hover:shadow-blue-300">
                         <img
                             src={logo}
                             className="h-10 mx-auto w-auto sm:w-3/4 px-4 sm:px-0"

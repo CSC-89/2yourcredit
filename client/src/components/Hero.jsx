@@ -1,7 +1,7 @@
 // import Image from 'next/future/image'
 import { useState, useEffect } from "react";
 import { Container } from "./Container";
-import avatarImg from "../assets/imgs/sliderImg/undraw_innovative_re_rr5i.svg";
+import avatarImg from "../assets/imgs/sliderImg/vecteezy_flat-style-illustration-of-finance-and-banking-with-atm_6470874.jpg";
 import { db } from "../firebase";
 import { getDocs, collection } from "firebase/firestore";
 import contentData from "../data/content";
@@ -11,7 +11,7 @@ export function Hero(props) {
     const [examples, setExamples] = useState([]);
 
     const countryId = props.country.countryId;
-    const dbRef = collection(db, `banks_${countryId}`); //Change out for "banks" when real data comes in
+    const dbRef = collection(db, `banks_${countryId}`);
     const content = contentData[`${countryId}`]
 
     const getData = async () => {
@@ -46,7 +46,7 @@ export function Hero(props) {
     };
 
     const splitInTwo = (array, cols) => {
-        //THIS WORKS
+        //Split the 'bank examples' array into two, for design input later.
         if (cols === 1) return array;
         var size = Math.ceil(array.length / cols);
         return [array.splice(0, size)].concat([array.splice(0, size)]);
@@ -54,6 +54,7 @@ export function Hero(props) {
 
     useEffect(() => {
         getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -63,10 +64,11 @@ export function Hero(props) {
                 setExamples(examples);
             }, 1000);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [banksArray]);
 
     return (
-        <Container className="pt-20 text-center lg:pt-32 bg-white">
+        <Container className="pt-20 text-center lg:pt-32 bg-white min-w-full">
             <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
                 {content.header1} <br />
                 <span className="relative whitespace-nowrap text-blue-600">
@@ -78,7 +80,7 @@ export function Hero(props) {
                     >
                         <path d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z" />
                     </svg>
-                    <span className="relative">LÅN</span>
+                    <span className="relative">{content.header2}</span>
                 </span>{" "}
             </h1>
             <p className="mx-auto max-w-2xl text-lg tracking-tight text-slate-700 mt-4">
@@ -98,7 +100,7 @@ export function Hero(props) {
                 {/** */}
             </div>
             {
-                <div className="mt-10 lg:mt-20">
+                <div className="mt-10 lg:mt-20 pb-10">
                     <ul className="mt-8 mb-5 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0">
 
                         {examples.map((group, groupIndex) => (
@@ -110,7 +112,7 @@ export function Hero(props) {
                                                 className="p-2 w-full object-contain h-20"
                                                 src={company.logo}
                                                 alt={company.name}
-                                                unoptimized
+                                                
                                             />
                                         </li>
                                     ))}

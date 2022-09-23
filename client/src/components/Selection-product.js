@@ -1,33 +1,14 @@
 import React from "react";
-import useCalc from "../hooks/use-calc";
 import formatter from "../functions/currency-format";
 import { Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
+import contentData from "../data/content";
 
 const SelectionProduct = (props) => {
     const bank = props.productInfo;
-    const premium = props.loanAmount;
-    const year = props.year;
-    const meanInterest = (bank.minInterestRate * bank.maxInterestRate) / 2;
+    const countryId = props.countryId;
+    const content = contentData[`${countryId}`];
 
-    const r = meanInterest / 100 / 12;
-    const n = 12 * year;
-
-    const math = useCalc(r, n);
-
-    const calculations = (premium, math) => {
-        const monthlyPayment = Math.round(premium * math);
-        const total = parseInt((monthlyPayment * n).toFixed(2));
-        const costs = total - premium;
-
-        return {
-            monthlyPayment,
-            total,
-            costs,
-        };
-    };
-
-    const { monthlyPayment } = calculations(premium, math); //Can also extract "total and "costs" if needed
 
     return (
         <ul className="flex flex-col gap-y-6 sm:gap-y-8">
@@ -52,7 +33,7 @@ const SelectionProduct = (props) => {
                             </div>
                             <p className="text-md tracking-tight text-slate-900">
                                 {" "}
-                                <strong>Lånebeløp:</strong>{" "}
+                                <strong>{content.card.amount}:</strong>{" "}
                                 <br />
                                 {formatter
                                     .format(bank.minLoanAmount)
@@ -62,20 +43,20 @@ const SelectionProduct = (props) => {
                             </p>
                             <p className="text-md tracking-tight text-slate-900">
                                 {" "}
-                                Nom. Rente: {bank.minInterestRate}{" "}
+                                <strong>{content.card.nom_interest}: </strong> {parseFloat(bank.minInterestRate)}{" "}
                                     {bank.minInterestRate ? "- " : "N/A"}
-                                    {bank.maxInterestRate}{" "}
+                                    {parseFloat(bank.maxInterestRate)}{" "}
                                     {bank.maxInterestRate && "%"}
                             </p>
                             <p className="text-md tracking-tight text-slate-900">
                                 {" "}
-                                <strong>Aldersgrense:</strong> {bank.minAge} år
+                                <strong>{content.card.age}: </strong> {bank.minAge} år
                             </p>
                             <p className="text-md tracking-tight text-slate-900">
                                 {" "}
-                                <strong>min. inntekt:</strong>{" "}
+                                <strong>{content.card.min_income}: </strong>{" "}
                                 {formatter
-                                    .format(bank.minIncomeRequired)
+                                    .format(parseFloat(bank.minIncomeRequired))
                                     .replace(",00", "")}
                             </p>
                             {/* <p className="text-md tracking-tight text-slate-900">
@@ -93,7 +74,7 @@ const SelectionProduct = (props) => {
                                     {bank.name}
                                 </div>
                                 <div className="mt-1 text-sm text-slate-500">
-                                    Eff. Rente: {bank.minEffectiveRate}{" "}
+                                {content.card.eff_interest}:  {bank.minEffectiveRate}{" "}
                                     {bank.minEffectiveRate ? "- " : "N/A"}
                                     {bank.maxEffectiveRate}{" "}
                                     {bank.maxEffectiveRate && "%"}

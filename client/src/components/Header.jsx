@@ -7,7 +7,6 @@ import logo from "../assets/imgs/logo/logo4.svg";
 import { NavLink } from "./NavLink";
 import contentData from "../data/content";
 
-
 function MobileNavLink({ href, children }) {
     return (
         <a href={href} className="block w-full p-2">
@@ -79,7 +78,9 @@ function MobileNavigation() {
                     >
                         <MobileNavLink href="#selection">Utvalg</MobileNavLink>
                         <hr className="m-2 border-slate-300/40" />
-                        <MobileNavLink href="#https://lovdata.no/dokument/LTI/forskrift/2019-02-12-83">Lover og Regler</MobileNavLink>
+                        <MobileNavLink href="#https://lovdata.no/dokument/LTI/forskrift/2019-02-12-83">
+                            Lover og Regler
+                        </MobileNavLink>
                         <MobileNavLink href="/ordliste">Ordbok</MobileNavLink>
                     </Popover.Panel>
                 </Transition.Child>
@@ -89,9 +90,8 @@ function MobileNavigation() {
 }
 
 export function Header(props) {
-
     const countryId = props.country.countryId;
-    const content = contentData[`${countryId}`]
+    const content = contentData[`${countryId}`];
 
     return (
         <header className="py-10">
@@ -106,9 +106,23 @@ export function Header(props) {
                             />
                         </a>
                         <div className="hidden md:flex md:gap-x-6">
-                        <span className="border-2 shadow-inner bg-sky-100 rounded-lg text-blue-100"><NavLink href="#selection">Utvalg</NavLink></span>
-                            <span className="border-2 shadow-inner bg-sky-100 rounded-lg text-blue-100"><NavLink href={content.laws_link}>{content.laws_text}</NavLink></span>
-                            {countryId === "NO" && <span className="border-2 shadow-inner bg-sky-100 rounded-lg text-blue-100"><NavLink href="/ordliste">Ordbok</NavLink></span>}
+                            <span className="border-2 shadow-inner bg-sky-100 rounded-lg text-blue-100">
+                                <NavLink href="#selection">
+                                    {content.buttons.selection}
+                                </NavLink>
+                            </span>
+                            <span className="border-2 shadow-inner bg-sky-100 rounded-lg text-blue-100">
+                                <NavLink href={content.buttons.laws_link}>
+                                    {content.buttons.laws_text}
+                                </NavLink>
+                            </span>
+                            {countryId === "NO" && (
+                                <span className="border-2 shadow-inner bg-sky-100 rounded-lg text-blue-100">
+                                    <NavLink href="/ordliste">
+                                        {content.buttons.wordlist}
+                                    </NavLink>
+                                </span>
+                            )}
                         </div>
                     </div>
                     <div className="flex items-center gap-x-5 md:gap-x-8">
