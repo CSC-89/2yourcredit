@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 import { Hero } from "../Hero";
 import { Selection } from "../Selection";
 import { Faqs } from "../Faqs";
-import { SecondaryFeatures } from "../SecondaryFeatures";
+import ThreeCards from "../ThreeCards";
 
 const Main = (props) => {
     const [cookies, setCookie] = useCookies("cookies");
@@ -48,16 +48,11 @@ const Main = (props) => {
                 />
             </header>
             <Header country={props.country} />
-            <main className="bg-gradient-to-b from-white to-sky-200/50">
+            <main className="bg-sky-200/50">
                 <Hero country={props.country} />
-
+                <ThreeCards country={props.country} />
                 <Selection country={props.country} className="mx-auto" />
-                {/* <SecondaryFeatures /> */}
-                {props.country.countryId === "NO" ? (
-                    <Faqs />
-                ) : (
-                    <div className="py-20"></div>
-                )}
+                <Faqs country={props.country}/>
             </main>
             <Footer country={props.country} />
         </>

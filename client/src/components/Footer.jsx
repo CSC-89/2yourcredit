@@ -1,7 +1,5 @@
-// import Link from 'next/link'
-
 import { Container } from "./Container";
-import logo from "../assets/imgs/logo/logo4.svg";
+import logo from "../assets/imgs/logo/logo1.svg";
 import { NavLink } from "./NavLink";
 import contentData from "../data/content";
 

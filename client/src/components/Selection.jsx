@@ -17,7 +17,7 @@ export function Selection(props) {
     const [yearSliderData, setYearSliderData] = useState(3);
 
     const countryId = props.country.countryId;
-    const dbRef = collection(db, `banks_${countryId}`); //Change out for "banks" when real data comes in
+    const dbRef = collection(db, `banks_${countryId}`);
     const content = contentData[`${countryId}`];
 
     const getData = async () => {
@@ -78,7 +78,7 @@ export function Selection(props) {
             aria-label="Our Selection"
             className=" py-10 mx-auto"
         >
-            <hr className="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700"/>
+            <hr id="tab" className="my-8 h-px bg-gray-300 border-0 dark:bg-gray-100 w-20 py-1 rounded-xl mx-auto"/>
             <Container className=" min-h-screen pt-20 bg-opacity-60">
                 <div className="mx-auto max-w-2xl md:text-center bg-opacity-60">
                     <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">

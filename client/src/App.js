@@ -55,7 +55,7 @@ function App() {
     };
 
     const showPosition = (position) => {
-        const geodata = fetch(
+        fetch(
             `https://geocodeapi.p.rapidapi.com/GetTimezone?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`,
             options
         )
@@ -65,6 +65,7 @@ function App() {
     };
     useEffect(() => {
         getLocation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
