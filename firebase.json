@@ -1,0 +1,86 @@
+{
+  "functions": {
+    "source": "backend",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log"
+    ],
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint"
+    ]
+  },
+  "emulators": {
+    "hosting": {
+      "port": 3000
+    },
+    "functions": {
+      "port": 3001
+    }
+  },
+  "hosting": [
+    {
+      "target": "2yourcredit-default",
+      "public": "./client/public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "app/**",
+          "destination": "/app/index.html"
+        }
+      ],
+      "headers": [
+        {
+          "source": "**/*",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "static/**",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(css|js)",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "sw.js",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "page-data/**",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

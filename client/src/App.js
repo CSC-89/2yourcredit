@@ -69,7 +69,6 @@ function App() {
     }, []);
 
     return (
-        <>
             <Router>
                 <Routes>
                     {geodata === null && (
@@ -136,7 +135,6 @@ function App() {
                     />
                 </Routes>
             </Router>
-        </>
     );
 }
 

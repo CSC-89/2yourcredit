@@ -1,0 +1,19 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "description": "database updater for 2yourcredit",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon"
+  },
+  "author": "Chris Stephens",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "firebase-admin": "^11.0.1",
+    "nodemon": "^2.0.19"
+  }
+}

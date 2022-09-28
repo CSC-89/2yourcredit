@@ -40,13 +40,13 @@ const Main = (props) => {
 
     return (
         <>
-            <header>
+            {/* <header>
                 <title>2YourCredit</title>
                 <meta
                     name="description"
                     content="En samling av forbrukslån fra de største bankene i Norge. This way to your credit."
                 />
-            </header>
+            </header> */}
             <Header country={props.country} />
             <main className="bg-sky-200/50">
                 <Hero country={props.country} />

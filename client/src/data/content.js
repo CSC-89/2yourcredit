@@ -28,7 +28,7 @@ const content = {
                 message: "Søk det beløpet du trenger, gis av de flere banker vi samarbeider med."
             },
             step_2: {
-                title: "Klik på ønsket bank",
+                title: "Klikk på ønsket bank",
                 message: "Se over hvilke låneforslag fra banken som passer best til deg."
             },
             step_3: {
