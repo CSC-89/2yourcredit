@@ -4,6 +4,7 @@ const cors = require("cors");
 const axios = require("axios");
 const https = require("https");
 const { writeFile, appendFile } = require("fs");
+const { count } = require("console");
 
 const app = express();
 
@@ -15,17 +16,17 @@ app.get("/getAdservice", async (req, res) => {
 
     const getData = async (pubId, catId, countryId) => {
         const data = await axios
-            //Update Adservice_NO
+            //Update Adservice
             .get(
                 `https://api.adservice.com/v2/public/publisher/comparisonfeed/data?pid=${pubId}&category_id=${catId}/`
             )
-            .then((response) => {
-                console.log("Reached!");
+            .then(async (response) => {
+                await console.log(`Adservice "${countryId}" Reached!`);
                 return response.data.data;
             })
-            .then((data) => {
-                res.status(200).json(data)
-                writeFile(
+            .then(async (data) => {
+                res.status(200).json(data);
+                await writeFile(
                     `${path}/adService_${countryId}.js`,
                     `module.exports = \n [`,
                     (err) => {
@@ -33,31 +34,38 @@ app.get("/getAdservice", async (req, res) => {
                     }
                 );
 
-                data.forEach((elm, i) => {
+                await data.forEach((elm, i) => {
                     appendFile(
                         `${path}/adService_${countryId}.js`,
                         `\n${JSON.stringify(elm)},`,
                         (err) => console.log(err)
                     );
                 });
-            })
-            .then((data) => {
-                setTimeout(() => {
-                    appendFile(`${path}/adService_${countryId}.js`, `\n ]`, (err) => {
-                        console.log(err);
-                    });
-                }, 1000);
+                await setTimeout(() => {
+                    appendFile(
+                        `${path}/adService_${countryId}.js`,
+                        `\n ];`,
+                        (err) => {
+                            console.log(err);
+                        }
+                    );
+                }, 500);
             })
             .catch((err) => console.log("Error:", err));
-        
+
+        await console.log(`Successfully updated "${countryId}"`);
     };
 
-    // const get_NO = getData(43644, 147, "NO");
-    const get_DK = getData(43645, 147, "DK");
-    // const get_SE = getData(43646, 147, "SE");
+    const getAllData = async () => {
+        await getData(43644, 147, "NO");
+        await getData(43645, 147, "DK");
+        await getData(43646, 147, "SE");
+    };
+
+    getAllData();
 });
 
-exports.hello = functions
+exports.run_update = functions
     .runWith({
         memory: "2GB",
     })

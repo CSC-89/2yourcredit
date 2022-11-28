@@ -43,10 +43,10 @@ const SelectionProduct = (props) => {
                             </p>
                             <p className="text-md tracking-tight text-slate-900">
                                 {" "}
-                                <strong>{content.card.nom_interest}: </strong> {parseFloat(bank.minInterestRate)}{" "}
+                                <strong>{content.card.nom_interest}: </strong> {parseFloat(bank.minInterestRate) + " "}
                                     {bank.minInterestRate ? "- " : "N/A"}
-                                    {parseFloat(bank.maxInterestRate)}{" "}
-                                    {bank.maxInterestRate && "%"}
+                                    {bank.maxInterestRate !== null && parseFloat(bank.maxInterestRate)}{" "}
+                                    {bank.maxInterestRate ? "%" : " No limit"}
                             </p>
                             <p className="text-md tracking-tight text-slate-900">
                                 {" "}

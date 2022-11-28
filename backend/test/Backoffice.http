@@ -1,3 +1,3 @@
 ###
-GET http://localhost:5000/finance-affiliate-app/europe-west1/hello/getAdService HTTP/1.1
+GET http://localhost:5000/finance-affiliate-app/europe-west1/run_update/getAdService HTTP/1.1
 Accept: application/json
