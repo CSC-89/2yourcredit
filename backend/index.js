@@ -33,7 +33,6 @@ app.get("/getAdservice", async (req, res) => {
                         console.log(err);
                     }
                 );
-
                 await data.forEach((elm, i) => {
                     appendFile(
                         `${path}/adService_${countryId}.js`,

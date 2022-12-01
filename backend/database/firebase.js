@@ -12,6 +12,7 @@ const {
 } = require("firebase-admin/firestore");
 const data = require("./data/adService_NO");
 const serviceAccount = require("../service-account-file.json");
+const axios = require("axios");
 const adService_NO = require("./data/adService_NO");
 const adService_SE = require("./data/adService_SE");
 const adService_DK = require("./data/adService_DK");
@@ -23,7 +24,6 @@ const app = initializeApp({
 });
 
 const db = getFirestore(app);
-
 
 //Functions
 async function deleteCollection(db, collectionPath, batchSize) {
@@ -60,7 +60,7 @@ async function deleteQueryBatch(db, query, resolve) {
 }
 
 const addDocs = (array, collectionPath) => {
-  const dbRef = db.collection(collectionPath);
+    const dbRef = db.collection(collectionPath);
     array.forEach((elm) => {
         dbRef.add({
             name: elm.name,
@@ -88,26 +88,39 @@ const updateDb_NO = () => {
         addDocs(adService_NO, "banks_NO");
         console.log("[[ ADSERVICE - NORWAY ]] UPDATE SUCCESSFUL");
     });
-}
+};
 
 const updateDb_SE = () => {
     deleteCollection(db, "banks_SE", 0).then(() => {
         addDocs(adService_SE, "banks_SE");
         console.log("[[ ADSERVICE - SWEDEN ]] UPDATE SUCCESSFUL");
     });
-}
+};
 
 const updateDb_DK = () => {
     deleteCollection(db, "banks_DK", 0).then(() => {
         addDocs(adService_DK, "banks_DK");
         console.log("[[ ADSERVICE - DENMARK ]] UPDATE SUCCESSFUL");
     });
-}
+};
 
-try {
-    updateDb_NO();
-    updateDb_SE();
-    updateDb_DK();
-} catch (e) {
-    console.error("Error adding document: ", e);
-}
+const updateData = async () => {
+    await axios
+        .get(
+            "http://localhost:5000/finance-affiliate-app/europe-west1/run_update/getAdService"
+        )
+        .then(async () => {
+            console.log("List updated")
+            try {
+                await updateDb_NO();
+                await updateDb_SE();
+                await updateDb_DK();
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        });
+};
+
+updateData();
+// "node firebase.js" to run
+// or "node backend/database/firebase.js" from root
