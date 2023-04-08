@@ -76,7 +76,12 @@ function App() {
                     )}
 
                     {geodata === false && (
-                        <Route exact path="/" element={<LocationSelect />} />
+                        <Route exact path="/" element={<Main
+                            country={{
+                                name: "Norway",
+                                countryId: "NO",
+                            }}
+                        />} />
                     )}
 
                     {geodata && (

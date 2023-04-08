@@ -9,6 +9,27 @@ import { getDocs, collection } from "firebase/firestore";
 import SelectionProduct from "./Selection-product";
 import contentData from "../data/content";
 import { Pagination } from "@mui/material/";
+import flagNO from "../assets/imgs/flags/norway-flag-icon.png"
+import flagSE from "../assets/imgs/flags/sweden-flag-icon.svg"
+import flagDK from "../assets/imgs/flags/denmark-flag-icon.svg"
+
+const options = [
+    {
+        label: 'Norway',
+        value: "NO",
+        image: flagNO,
+    },
+    {
+        label: 'Sweden',
+        value: "SE",
+        image: flagSE,
+    },
+    {
+        label: 'Denmark',
+        value: "DK",
+        image: flagDK,
+    }
+];
 
 export function Selection(props) {
     const [banksArray, setBanksArray] = useState([]);
@@ -95,9 +116,21 @@ export function Selection(props) {
                 />
                 {!loadStatus && <LoadingPage />}
 
+                <div id="countrySelection" className="mt-16 lg:mt-20 flex items-center gap-x-5 md:gap-x-8">
+                        {options.map((elm, i) => {
+                          return (
+                            <form method="GET" action={"/" + elm.value + "#selection"}>
+                                <button type="submit" key={i} id={`button_${elm.value}`} className={`w-8 md:w-10 h-8 md:h-10 mt-5 md:mt-0 p-1 border rounded-md ${elm.value === countryId && "focus:outline-none disabled:opacity-25"}`} disabled={elm.value === countryId}>
+                                <img src={elm.image} alt={elm.label} />
+                                </button>
+                            </form>
+                          )
+                        })}
+                    </div>
+
                 {loadStatus && (
                     <div>
-                        <p className="mt-16 lg:mt-20 text-sm italic mb-4">
+                        <p className="mt-2 lg:mt-2 text-sm italic mb-4">
                             Showing{" "}
                             <span className="font-bold">
                                 {!filteredBanks.length ? 0 : 1} -{" "}

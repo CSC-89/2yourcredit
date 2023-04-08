@@ -6,9 +6,9 @@ const WordList = () => {
         <>
             
             <div className="bg-sky-200/50 lg:px-72 py-12 absolute">
-                <div className="bg-gray-50 py-4 mx-2 rounded-lg mt-12 px-5 my-5">
+                <div className="bg-gray-50 py-4 mx-2 rounded-md mt-12 px-5 my-5">
                     <a href="/">
-                <div className=" mx-auto w-20 text-center p-2 border-1 bg-gray-300 rounded-lg">TILBAKE</div>
+                <div className=" mx-auto w-20 text-center p-2 border-1 bg-gray-300 rounded-md">TILBAKE</div>
                 </a>
                 {wordlist.map((elm, i) => {
                     return(
@@ -19,7 +19,7 @@ const WordList = () => {
                 </div>
                 )})}
                 <a href="/">
-                <div className=" mx-auto w-20 text-center p-2 border-1 bg-gray-300 rounded-lg">TILBAKE</div>
+                <div className=" mx-auto w-20 text-center p-2 border-1 bg-gray-300 rounded-md">TILBAKE</div>
                 </a>
                 </div>
             </div>

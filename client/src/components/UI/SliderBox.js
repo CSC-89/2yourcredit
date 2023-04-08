@@ -39,11 +39,11 @@ const SliderBox = (props) => {
 
     return (
         <>
-            <div className="container md:w-1/2 mx-auto mt-10 p-5 bg-white rounded-lg border-2 border-grey-100 shadow-lg">
+            <div className="container md:w-1/2 mx-auto mt-10 p-5 bg-white rounded-md border-2 border-grey-100 shadow-lg">
                 <div
                     className="flex flex-col items-center justify-between px-5"
                 >
-                    <div className="mb-5 bg-slate-200 overflow-hidden rounded-lg flex my-4 justify-center">
+                    <div className="mb-5 bg-slate-200 overflow-hidden rounded-md flex my-4 justify-center">
                         <h3 className="px-5 shadow-inner">Lånebeløp</h3>
                         <h3 className="px-5 bg-blue-200">
                             {formatter
@@ -60,7 +60,7 @@ const SliderBox = (props) => {
                         onChange={priceChangeHandler}
                     />
 
-                    {/* <div className="bg-slate-200 rounded-lg overflow-hidden flex justify-center my-4">
+                    {/* <div className="bg-slate-200 rounded-md overflow-hidden flex justify-center my-4">
                         <h3 className="px-5">Nedbetaling: </h3>
                         <h3 className="px-10  bg-blue-200">
                             {yearSliderData} År

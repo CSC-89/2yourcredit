@@ -89,11 +89,6 @@ export function Hero(props) {
             </p>
             <div className="sm:mt-10 lg:mx-64 sm:flex sm:justify-center sm:gap-x-6">
                 <div className="flex justify-center">
-                    <img
-                        className="p-5 mt-5 md:w-2/3"
-                        src={avatarImg}
-                        alt="stock"
-                    ></img>
                     {/* <img className="p-5 w-1/2 h-72" src={avatarImg3} alt="stock"></img> */}
                 </div>
 

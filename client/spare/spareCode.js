@@ -1,7 +1,7 @@
 // {/* PRODUCTLIST code */}
 
 // {/*The table itself */}
-// <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mx-auto">
+// <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-md mx-auto">
 // <table className="table-auto min-w-full bg-white">
 //     <thead className="bg-gray-50">
 //         <tr className="flex justify-between"> 

@@ -21,18 +21,18 @@ export function Footer(props) {
                         aria-label="quick links"
                     >
                         <div className="-my-1 flex justify-center gap-x-6">
-                            <span className="border-2 shadow-inner bg-sky-100 rounded-lg text-blue-100">
+                            <span className="border-2 shadow-inner bg-sky-100 rounded-md text-blue-100">
                                 <NavLink href="#selection">
                                     {content.buttons.selection}
                                 </NavLink>
                             </span>
-                            <span className="border-2 shadow-inner bg-sky-100 rounded-lg text-blue-100">
+                            <span className="border-2 shadow-inner bg-sky-100 rounded-md text-blue-100">
                                 <NavLink href={content.buttons.laws_link}>
                                     {content.buttons.laws_text}
                                 </NavLink>
                             </span>
                             {countryId === "NO" && (
-                                <span className="border-2 shadow-inner bg-sky-100 rounded-lg text-blue-100">
+                                <span className="border-2 shadow-inner bg-sky-100 rounded-md text-blue-100">
                                     <NavLink href="/ordliste">
                                         {content.buttons.wordlist}
                                     </NavLink>

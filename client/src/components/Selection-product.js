@@ -80,7 +80,7 @@ const SelectionProduct = (props) => {
                                     {bank.maxEffectiveRate && "%"}
                                 </div>
                             </div>
-                            <div className="overflow-hidden w-32 rounded-lg bg-slate-50">
+                            <div className="overflow-hidden w-32 rounded-md bg-slate-50">
                                 <img
                                     className="p-2 w-full object-contain h-20"
                                     src={bank.imageUrl}
