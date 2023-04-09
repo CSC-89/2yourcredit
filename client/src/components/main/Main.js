@@ -39,7 +39,7 @@ const Main = (props) => {
     // }, [setCookie]);
 
     return (
-        <>
+        <div class="">
             <Header country={props.country} />
             <main className="bg-sky-200/50">
                 <Hero country={props.country} />
@@ -48,7 +48,7 @@ const Main = (props) => {
                 <Faqs country={props.country}/>
             </main>
             <Footer country={props.country} />
-        </>
+        </div>
     );
 };
 

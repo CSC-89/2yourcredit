@@ -41,18 +41,18 @@ export function Header(props) {
                             />
                         </a>
                         <div className="hidden md:flex md:gap-x-6">
-                            <span className="border-2 shadow-inner bg-sky-100 rounded-md text-blue-100">
+                            <span className="text-2xl underline underline-offset-4 text-blue-100">
                                 <NavLink href="#selection">
                                     {content.buttons.selection}
                                 </NavLink>
                             </span>
-                            <span className="border-2 shadow-inner bg-sky-100 rounded-md text-blue-100">
+                            <span className="text-2xl underline underline-offset-4 text-blue-100">
                                 <NavLink href={content.buttons.laws_link}>
                                     {content.buttons.laws_text}
                                 </NavLink>
                             </span>
                             {countryId === "NO" && (
-                                <span className="border-2 shadow-inner bg-sky-100 rounded-md text-blue-100">
+                                <span className="text-2xl underline underline-offset-4 text-blue-100">
                                     <NavLink href="/ordliste">
                                         {content.buttons.wordlist}
                                     </NavLink>

@@ -13,7 +13,7 @@ const content = {
         subheader2: "This way to your credit.",
         selection_text1: "Nesten der!",
         selection_text2:
-            "Velg en av de velgene under og få deg et rimelig lån som passer perfekt for deg.",
+            "Få deg et rimelig lån som passer deg perfekt.",
         card: {
             amount: "Lånebeløp",
             nom_interest: "Nom. Rente",
@@ -96,7 +96,7 @@ const content = {
         subheader2: "This way to your credit.",
         selection_text1: "Nästan där!",
         selection_text2:
-            "Välj ett av alternativen nedan och skaffa dig ett rimligt lån som passar dig perfekt.",
+            "Skaffa dig ett rimligt lån som passar dig perfekt.",
         card: {
             amount: "Lånebelopp",
             nom_interest: "Nom. Ränta",
@@ -179,7 +179,7 @@ const content = {
         subheader2: "This way to your credit.",
         selection_text1: "Der næsten!",
         selection_text2:
-            "Vælg en af ​​mulighederne herunder og få dig et rimeligt lån, der passer perfekt til dig.",
+            "Få dig et rimeligt lån, der passer perfekt til dig.",
         card: {
             amount: "Lånebeløb",
             nom_interest: "Nom. Rente",

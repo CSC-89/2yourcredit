@@ -102,10 +102,10 @@ export function Selection(props) {
             <hr id="tab" className="my-8 h-px bg-gray-300 border-0 dark:bg-gray-100 w-20 py-1 rounded-xl mx-auto"/>
             <Container className=" min-h-screen pt-20 bg-opacity-60">
                 <div className="mx-auto max-w-2xl md:text-center bg-opacity-60">
-                    <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+                    {/* <h2 className="font-display text-center text-3xl tracking-tight text-slate-900 sm:text-4xl">
                         {content.selection_text1}
-                    </h2>
-                    <p className="mt-4 text-lg tracking-tight text-slate-700">
+                    </h2> */}
+                    <p className="text-center mt-4 text-2xl md:text-4xl tracking-tight text-slate-700">
                         {content.selection_text2}
                     </p>
                 </div>
