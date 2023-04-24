@@ -1,7 +1,6 @@
 // import Image from 'next/future/image'
 import { useState, useEffect } from "react";
 import { Container } from "./Container";
-import avatarImg from "../assets/imgs/sliderImg/vecteezy_flat-style-illustration-of-finance-and-banking-with-atm_6470874.jpg";
 import { db } from "../firebase";
 import { getDocs, collection } from "firebase/firestore";
 import contentData from "../data/content";
@@ -68,10 +67,11 @@ export function Hero(props) {
     }, [banksArray]);
 
     return (
-        <Container className="pt-20 text-center lg:pt-32 bg-white min-w-full">
-            <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
+        <div className="bg-white">
+        <Container className={`pt-20 text-center lg:pt-32 bg-hero-pattern bg-cover md:bg-contain bg-no-repeat bg-center min-w-full`}>
+            <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-blue-400 drop-shadow-2xl sm:text-7xl">
                 {content.header1} <br />
-                <span className="relative whitespace-nowrap text-blue-600">
+                <span className="relative whitespace-nowrap text-blue-100">
                     <svg
                         aria-hidden="true"
                         viewBox="0 0 418 42"
@@ -83,16 +83,12 @@ export function Hero(props) {
                     <span className="relative">{content.header2}</span>
                 </span>{" "}
             </h1>
-            <p className="mx-auto max-w-2xl text-lg tracking-tight text-slate-700 mt-4">
-            {content.subheader1}{" "}
-                <span className="text-blue-600">{content.subheader2}</span>.
+            <p className="mx-auto max-w-2xl text-lg tracking-tight text-blue-100 mt-4">
+            {content.subheader1}
+                {/* <span className="text-white">{content.subheader2}</span>. */}
             </p>
             <div className="sm:mt-10 lg:mx-64 sm:flex sm:justify-center sm:gap-x-6">
-                <div className="flex justify-center">
-                    {/* <img className="p-5 w-1/2 h-72" src={avatarImg3} alt="stock"></img> */}
-                </div>
-
-                {/** */}
+                
             </div>
             {
                 <div className="mt-10 lg:mt-20 pb-10">
@@ -102,9 +98,9 @@ export function Hero(props) {
                             <li key={groupIndex}>
                                 <ul className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0 p-4 md:p-0 max-w-sm">
                                     {group.map((company) => (
-                                        <li key={company.name} className="flex">
+                                        <li key={company.name} className="flex justify-between">
                                             <img
-                                                className="p-2 w-full object-contain h-20"
+                                                className="p-2 w-full object-contain h-20 bg-white rounded bg-blend-normal shadow-2xl"
                                                 src={company.logo}
                                                 alt={company.name}
                                                 
@@ -118,5 +114,6 @@ export function Hero(props) {
                 </div>
             }
         </Container>
+        </div>
     );
 }
