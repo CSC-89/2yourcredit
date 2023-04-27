@@ -103,7 +103,6 @@ export function Hero(props) {
                                                 className="p-2 w-full object-contain h-20 bg-white rounded bg-blend-normal shadow-2xl"
                                                 src={company.logo}
                                                 alt={company.name}
-                                                
                                             />
                                         </li>
                                     ))}
