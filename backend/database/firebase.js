@@ -11,7 +11,7 @@ const {
     FieldValue,
 } = require("firebase-admin/firestore");
 const data = require("./data/adService_NO");
-const serviceAccount = require("../service-account-file.json");
+const serviceAccount = require("../../service-account-file.json");
 const axios = require("axios");
 const adService_NO = require("./data/adService_NO");
 const adService_SE = require("./data/adService_SE");
@@ -112,6 +112,7 @@ const updateData = async () => {
         .then(async () => {
             console.log("List updated")
             try {
+                //Update the database
                 await updateDb_NO();
                 await updateDb_SE();
                 await updateDb_DK();

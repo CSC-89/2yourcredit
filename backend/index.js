@@ -5,18 +5,26 @@ const axios = require("axios");
 const https = require("https");
 const { writeFile, appendFile } = require("fs");
 const { count } = require("console");
+const { run_update } = require("../functions/index");
+require("dotenv").config();
 
 const app = express();
 
 app.use(cors({ origin: true }));
 
+const catID = process.env.ADSERVICE_CAT_ID;
+const pubNO = process.env.ADSERVICE_NO_PUB_ID;
+const pubDK = process.env.ADSERVICE_DK_PUB_ID;
+const pubSE = process.env.ADSERVICE_SE_PUB_ID;
+
 //ROUTES
+//Fetching the Adservice data and writing to a file
 app.get("/getAdservice", async (req, res) => {
     const path = "./database/data";
 
     const getData = async (pubId, catId, countryId) => {
         const data = await axios
-            //Update Adservice
+            //Fetch new Adservice data
             .get(
                 `https://api.adservice.com/v2/public/publisher/comparisonfeed/data?pid=${pubId}&category_id=${catId}/`
             )
@@ -56,19 +64,13 @@ app.get("/getAdservice", async (req, res) => {
     };
 
     const getAllData = async () => {
-        await getData(43644, 147, "NO");
-        await getData(43645, 147, "DK");
-        await getData(43646, 147, "SE");
+        //Update the data files, prepare in prep to load to database
+        await getData(pubNO, catID, "NO");
+        await getData(pubDK, catID, "DK");
+        await getData(pubSE, catID, "SE");
     };
 
     getAllData();
 });
-
-exports.run_update = functions
-    .runWith({
-        memory: "2GB",
-    })
-    .region("europe-west1")
-    .https.onRequest(app);
 
 // AWin: https://productdata.awin.com/datafeed/list/apikey/ffcd5b87a643effd7dfc06421b6be4ba
